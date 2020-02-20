@@ -1,0 +1,21 @@
+<div class="profile" *ngIf="profileData">
+    <div class="card-holder">
+        <mat-card class="profile-card">
+            <img mat-card-image [src]="profileData.imgUrl" alt="Photo">
+            <mat-card-content>
+                <h2>{{profileData.profileInfo}}</h2>
+                <button mat-raised-button color="primary" (click)="editProfileHandler()">EDIT</button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="info">
+        <h2 class="prop">Name</h2>
+        <h3 class="value">{{profileData.firstName}} {{profileData.lastName}}</h3>
+        <h2 class="prop">City</h2>
+        <h3 class="value">{{profileData.city}}</h3>
+        <h2 class="prop">Email</h2>
+        <h3 class="value">{{profileData.email}}</h3>
+        <h2 class="prop">Phone Number</h2>
+        <h3 class="value">{{profileData.phoneNumber}}</h3>
+    </div>
+</div>

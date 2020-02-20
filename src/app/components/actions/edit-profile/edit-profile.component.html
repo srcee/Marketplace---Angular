@@ -1,0 +1,68 @@
+<form [formGroup]="editProfileInfoForm" (ngSubmit)="editHandler(editProfileInfoForm)">
+    <h1>Edit your profile information.</h1>
+
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input formControlName="firstName" name="firstName" matInput placeholder="First Name">
+            <mat-icon matSuffix>account_box</mat-icon>
+            <mat-hint
+                *ngIf="editProfileInfoForm.get('firstName').hasError('required') && editProfileInfoForm.get('firstName').touched">
+                First name field is
+                required!</mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input formControlName="lastName" name="lastName" matInput placeholder="Last Name">
+            <mat-icon matSuffix>account_box</mat-icon>
+            <mat-hint
+                *ngIf="editProfileInfoForm.get('lastName').hasError('required') && editProfileInfoForm.get('lastName').touched">
+                Last name field is
+                required!</mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Image URL</mat-label>
+            <input formControlName="imgUrl" name="imgUrl" matInput placeholder="Image URL">
+            <mat-icon matSuffix>account_box</mat-icon>
+            <mat-hint
+                *ngIf="editProfileInfoForm.get('imgUrl').hasError('required') && editProfileInfoForm.get('imgUrl').touched">
+                Image URL is
+                required!</mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <input formControlName="city" name="city" matInput placeholder="City">
+            <mat-hint
+                *ngIf="editProfileInfoForm.get('city').hasError('required') && editProfileInfoForm.get('city').touched">
+                City field is required!</mat-hint>
+            <mat-icon matSuffix>location_city</mat-icon>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input formControlName="phoneNumber" name="phoneNumber" matInput type="number" class="example-right-align"
+                placeholder="Phone Number">
+            <mat-icon matSuffix>phone</mat-icon>
+            <mat-hint
+                *ngIf="editProfileInfoForm.get('phoneNumber').hasError('required') && editProfileInfoForm.get('phoneNumber').touched">
+                Phone Number field is
+                required!</mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Additional Information</mat-label>
+            <textarea matInput formControlName="profileInfo" name="profileInfo"></textarea>
+            <mat-icon matSuffix>description</mat-icon>
+        </mat-form-field>
+    </p>
+    <button mat-raised-button color="primary" [disabled]="editProfileInfoForm.invalid">SUBMIT</button>
+
+</form>

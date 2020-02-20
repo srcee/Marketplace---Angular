@@ -1,0 +1,55 @@
+<form [formGroup]="editOfferForm" (ngSubmit)="editHandler(editOfferForm)">
+    <h1>Edit your {{type}} offer</h1>
+
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input formControlName="title" name="title" matInput placeholder="Offer's title">
+            <mat-icon matSuffix>account_box</mat-icon>
+            <mat-hint *ngIf="editOfferForm.get('title').hasError('required') && editOfferForm.get('title').touched">
+                Title is
+                required!</mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Image URL</mat-label>
+            <input formControlName="imgUrl" name="imgUrl" matInput placeholder="Image URL">
+            <mat-icon matSuffix>account_box</mat-icon>
+            <mat-hint *ngIf="editOfferForm.get('imgUrl').hasError('required') && editOfferForm.get('imgUrl').touched">
+                Image URL is
+                required!</mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <input formControlName="city" name="city" matInput placeholder="City">
+            <mat-icon matSuffix>location_city</mat-icon>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Price</mat-label>
+            <input formControlName="price" name="price" matInput type="number" class="example-right-align"
+                placeholder="price">
+            <span matPrefix>$&nbsp;</span>
+            <mat-hint *ngIf="editOfferForm.get('price').hasError('required') && editOfferForm.get('price').touched">
+                Price field is
+                required!</mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Information</mat-label>
+            <textarea matInput formControlName="info" name="info"></textarea>
+            <mat-icon matSuffix>description</mat-icon>
+            <mat-hint
+                *ngIf="(editOfferForm.get('info').hasError('required') || editOfferForm.get('info').hasError('minlength')) && editOfferForm.get('info').touched">
+                Please add at least 10 characters long information about the
+                item</mat-hint>
+        </mat-form-field>
+    </p>
+    <button mat-raised-button color="primary" [disabled]="editOfferForm.invalid">SUBMIT</button>
+
+</form>

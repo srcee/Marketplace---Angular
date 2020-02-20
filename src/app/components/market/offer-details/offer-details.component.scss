@@ -1,0 +1,60 @@
+.example-card {
+    margin: 0 auto;
+    margin-top: 150px;
+    width: 40%;
+    max-width: 800px;
+    text-align: center;
+    font-weight: bold;
+
+    p {
+        word-wrap: break-word;
+        font-style: italic;
+        font-size: medium;
+    }
+    h1 {
+        color: #673ab7;
+        margin: 40px;
+        font-size: 30px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    h2 {
+        margin-top: 15px;
+        font-size: 27px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    
+}
+
+.contacts {
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows:  auto;
+}
+.prop {
+    text-align: right;
+    font-size: medium;
+    font-weight: bold;
+    color: #673ab7
+}
+.value {
+    text-align: left;
+}
+.price {
+    color: green;
+}
+button {
+    background-color: #673ab7;
+    color: white;
+    border: 2px solid white;
+    border-radius: 8px;
+    margin: 40px;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.del-btn {
+    background-color: red;
+}
+.edit-btn {
+    background-color: olive;
+}

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "marketplace-9b31d": {
+      "hosting": {
+        "Marketplace": [
+          "marketplace-9b31d"
+        ]
+      }
+    }
+  }
+}

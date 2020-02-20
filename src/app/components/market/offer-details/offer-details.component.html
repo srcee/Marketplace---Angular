@@ -1,0 +1,24 @@
+<div *ngIf="itemData">
+    <mat-card class="example-card">
+        <img mat-card-image [src]="itemData.imgUrl" alt="Photo">
+        <mat-card-content>
+            <h1> {{itemData.title}} </h1>
+            <p class="price">$ {{itemData.price}} </p>
+            <p> {{itemData.info}} </p>
+            <button class="edit-btn" *ngIf="isAuthor" (click)="editOffer()">Edit</button>
+            <button (click)="showInfoHandler()">{{showInfo === false ? 'Show' : 'Hide'}} contacts</button>
+            <button class="del-btn" (click)="deleteHandler()" *ngIf="isAuthor">Delete</button>
+            <div *ngIf="showInfo">
+                <h2> {{itemData.firstName}} {{itemData.lastName}}</h2>
+                <div class="contacts">
+                    <div class="prop">adress:</div>
+                    <div class="value">{{itemData.city}} </div>
+                    <div class="prop">phone number:</div>
+                    <div class="value">{{itemData.phoneNumber}} </div>
+                    <div class="prop">e-mail:</div>
+                    <div class="value">{{itemData.email}} </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

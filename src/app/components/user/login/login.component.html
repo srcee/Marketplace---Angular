@@ -1,0 +1,26 @@
+<form #loginForm="ngForm" (ngSubmit)="loginHandler(loginForm)">
+    <h1>Login</h1>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input #emailInput="ngModel" ngModel name="email" matInput placeholder="john.doe@mail.com" required email>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint *ngIf="emailInput.invalid && emailInput.touched">Please enter valid email.</mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" #passwordInput="ngModel" type="password" ngModel
+                name="password" matInput placeholder="* * * * * * *" required minlength="7">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-hint *ngIf="passwordInput.invalid && passwordInput.touched">
+                Please enter a valid password.<br>/ At least 7 characters long! /
+            </mat-hint>
+        </mat-form-field>
+    </p>
+    <button mat-raised-button color="primary" [disabled]="loginForm.invalid">LOGIN</button>
+</form>

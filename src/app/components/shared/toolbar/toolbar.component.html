@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <a routerLink="/" class="logo">Marketplace</a>
+    <ul>
+        <li *ngIf="!isAuth"><a routerLink="login">Login</a></li>
+        <li *ngIf="!isAuth"><a routerLink="register">Register</a></li>
+        <li *ngIf="isAuth"><a routerLink="market/buy">Buyer's Market</a></li>
+        <li *ngIf="isAuth"><a routerLink="market/sell">Seller's Market</a></li>
+        <li *ngIf="isAuth"><a routerLink="create">Make new offer</a></li>
+        <li *ngIf="isAuth"><a routerLink="profile">Profile</a></li>
+        <li *ngIf="isAuth"><button (click)="logout()">logout</button></li>
+    </ul>
+</mat-toolbar>

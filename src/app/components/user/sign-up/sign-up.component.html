@@ -1,0 +1,93 @@
+<form #registerForm="ngForm" (ngSubmit)="registerHandler(registerForm)">
+    <h1>Profile</h1>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>First name</mat-label>
+            <input ngModel name="firstName" #firstName="ngModel" matInput placeholder="Full name" required>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint *ngIf="firstName.invalid && firstName.touched">First name field is required!</mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Last name</mat-label>
+            <input ngModel name="lastName" #lastName="ngModel" matInput placeholder="Full name" required>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint *ngIf="lastName.invalid && lastName.touched">Last name field is required!</mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input ngModel name="phoneNumber" #phoneNumber="ngModel" matInput placeholder="Phone Number" required>
+            <mat-hint *ngIf="phoneNumber.invalid && phoneNumber.touched">Phone number field is required!</mat-hint>
+            <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <input ngModel name="city" #city="ngModel" matInput placeholder="City" required>
+            <mat-hint *ngIf="city.invalid && city.touched">City field is required!</mat-hint>
+            <mat-icon matSuffix>location_city</mat-icon>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Image URL</mat-label>
+            <input ngModel name="imgUrl" #imgUrl="ngModel" matInput placeholder="Image URL" required>
+            <mat-hint *ngIf="imgUrl.invalid && imgUrl.touched">Image URL field is required!</mat-hint>
+            <mat-icon matSuffix>add_a_photo</mat-icon>
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Additional Information</mat-label>
+            <textarea matInput ngModel name="profileInfo"></textarea>
+        </mat-form-field>
+    </p>
+
+    <h1>Login details</h1>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input ngModel id="email" name="email" #emailInput="ngModel" matInput placeholder="john.doe@mail.com"
+                required email>
+            <mat-icon matSuffix>alternate_email</mat-icon>
+            <mat-hint *ngIf="emailInput.invalid && emailInput.touched">Please enter valid email.</mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hidePw ? 'password' : 'text'" #passwordInput="ngModel" type="password" ngModel
+                name="password" matInput placeholder="* * * * * * *" required minlength="7">
+            <button type="button" mat-icon-button matSuffix (click)="hidePw = !hidePw"
+                [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePw">
+                <mat-icon>{{hidePw ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-hint *ngIf="passwordInput.invalid && passwordInput.touched">
+                Please enter a valid password.<br>/ At least 7 characters long! /
+            </mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Re-Password</mat-label>
+            <input matInput [type]="hideRePw ? 'password' : 'text'" #rePasswordInput="ngModel" type="password" ngModel
+                name="rePassword" matInput placeholder="* * * * * * *" required>
+            <button type="button" mat-icon-button matSuffix (click)="hideRePw = !hideRePw"
+                [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideRePw">
+                <mat-icon>{{hideRePw ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-hint *ngIf="passwordInput.value !== rePasswordInput.value && rePasswordInput.touched">
+                Passwords don't match!
+            </mat-hint>
+        </mat-form-field>
+    </p>
+
+    <button mat-raised-button color="primary"
+        [disabled]="registerForm.invalid || passwordInput.value !== rePasswordInput.value">SUBMIT</button>
+
+</form>

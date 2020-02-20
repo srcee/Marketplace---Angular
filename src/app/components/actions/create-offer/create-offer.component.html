@@ -1,0 +1,56 @@
+<form #createForm="ngForm" (ngSubmit)="createHandler(createForm)">
+    <h1>Make new offer on the market</h1>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Offer's type</mat-label>
+            <mat-select ngModel name="offerType" #offerType="ngModel" required>
+                <mat-option value="sell">Selling</mat-option>
+                <mat-option value="buy">Buying</mat-option>
+            </mat-select>
+            <mat-hint *ngIf="offerType.invalid && offerType.touched">Offer's type field is required!</mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input ngModel name="title" #title="ngModel" matInput placeholder="Title" required>
+            <mat-icon matSuffix>account_box</mat-icon>
+            <mat-hint *ngIf="title.invalid && title.touched">Title is required!</mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Image URL</mat-label>
+            <input ngModel name="imgUrl" #imgUrl="ngModel" matInput placeholder="Image URL" required>
+            <mat-icon matSuffix>add_a_photo</mat-icon>
+            <mat-hint *ngIf="imgUrl.invalid && imgUrl.touched">Image URL is required!</mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <input ngModel name="city" matInput placeholder="City">
+            <mat-icon matSuffix>location_city</mat-icon>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Price</mat-label>
+            <input ngModel name="price" #price="ngModel" matInput type="number" class="example-right-align"
+                placeholder="price" required>
+            <span matPrefix>$&nbsp;</span>
+            <mat-hint *ngIf="price.invalid && price.touched">Price field is required!</mat-hint>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Information</mat-label>
+            <textarea matInput ngModel name="info" #info="ngModel" minlength="10" required></textarea>
+            <mat-icon matSuffix>description</mat-icon>
+            <mat-hint *ngIf="info.invalid && info.touched">Please add at least 10 characters long information about the
+                item</mat-hint>
+        </mat-form-field>
+    </p>
+    <button mat-raised-button color="primary" [disabled]="createForm.invalid">SUBMIT</button>
+
+</form>
